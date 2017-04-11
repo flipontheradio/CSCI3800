@@ -1,0 +1,1 @@
+Because having OAuth tokens outside the main flow is creates a second layer of protection by adding a second proxy.
