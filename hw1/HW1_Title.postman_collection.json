@@ -1,0 +1,62 @@
+{
+	"id": "c3f509eb-6c1e-ac86-b91a-e5358174004f",
+	"name": "HW1",
+	"description": "",
+	"order": [
+		"5b1292e4-b266-0fa1-3ca9-87ddc0ece303",
+		"19be440e-c290-0409-71a3-083dca653e4e"
+	],
+	"folders": [],
+	"timestamp": 1491872811514,
+	"owner": "1537006",
+	"public": false,
+	"requests": [
+		{
+			"id": "19be440e-c290-0409-71a3-083dca653e4e",
+			"headers": "",
+			"url": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c3f509eb-6c1e-ac86-b91a-e5358174004f",
+			"data": null,
+			"dataMode": "params",
+			"name": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"description": "Id request and check",
+			"descriptionFormat": "html",
+			"time": 1491932018993,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = (responseCode.code == 200);\n\noldid = postman.getGlobalVariable(\"id\");\n\nif (responseCode.code == 200) {\n    try {\n        oldid = postman.getGlobalVariable(\"id\");\n        var data = JSON.parse(responseBody);\n        tests[\"Check same id\"] = data.id === oldid;\n    }\n    \n    catch(e){\n        console.log(e);\n    }\n\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "5b1292e4-b266-0fa1-3ca9-87ddc0ece303",
+			"headers": "//id[]: {{id}}\n",
+			"url": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "c3f509eb-6c1e-ac86-b91a-e5358174004f",
+			"data": [
+				{
+					"key": "id",
+					"value": "QJyX175VCj8C",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+			"description": "Turing Book Title Request",
+			"descriptionFormat": "html",
+			"time": 1491932003081,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = (responseCode.code == 200);\n\nif (responseCode.code == 200) {\n    try {\n        var response = JSON.parse(responseBody);\n        for(var i = 0; i < response.items.length; i++){\n            tests['Title has Turing'] = response.items[i].volumeInfo.title.has(\"Turing\");\n        }\n        postman.setGlobalVariable(\"id\", response.items[0].id); \n    }\n    \n    catch(e){\n        console.log(e);\n    }\n\n}\n",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

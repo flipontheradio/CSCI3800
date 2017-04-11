@@ -1,0 +1,103 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW1",
+		"_postman_id": "c3f509eb-6c1e-ac86-b91a-e5358174004f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = (responseCode.code == 200);",
+							"",
+							"if (responseCode.code == 200) {",
+							"    try {",
+							"        var response = JSON.parse(responseBody);",
+							"        for(var i = 0; i < response.items.length; i++){",
+							"            tests['Title has Turing'] = response.items[i].volumeInfo.title.has(\"Turing\");",
+							"        }",
+							"        postman.setGlobalVariable(\"id\", response.items[0].id); ",
+							"    }",
+							"    ",
+							"    catch(e){",
+							"        console.log(e);",
+							"    }",
+							"",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.googleapis.com/books/v1/volumes?q={{book_title}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "//id[]",
+						"value": "{{id}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "QJyX175VCj8C",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": "Turing Book Title Request"
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = (responseCode.code == 200);",
+							"",
+							"oldid = postman.getGlobalVariable(\"id\");",
+							"",
+							"if (responseCode.code == 200) {",
+							"    try {",
+							"        oldid = postman.getGlobalVariable(\"id\");",
+							"        var data = JSON.parse(responseBody);",
+							"        tests[\"Check same id\"] = data.id === oldid;",
+							"    }",
+							"    ",
+							"    catch(e){",
+							"        console.log(e);",
+							"    }",
+							"",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://www.googleapis.com/books/v1/volumes/{{id}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Id request and check"
+			},
+			"response": []
+		}
+	]
+}
