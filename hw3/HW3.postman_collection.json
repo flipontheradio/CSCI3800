@@ -1,0 +1,123 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW3",
+		"_postman_id": "6f0a9891-788d-0cba-cd67-664ccf638e38",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"token = \"{{GithubToken}}\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer CMeFwjGkSQltUnlONtsLlAyUzSuq",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Api call to my username"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"token = \"{{GithubToken}}\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio/repos",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer CMeFwjGkSQltUnlONtsLlAyUzSuq",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Api call to my repos"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"token = \"{{GithubToken}}\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/Hw3/git",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer CMeFwjGkSQltUnlONtsLlAyUzSuq",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Invalid api call to proxy"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/Hw3/get?request=/users/flipontheradio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"token = \"{{GithubToken}}\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/Hw3/git",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer cKxUtSuOYWmGi3AjCCUyHffzkX1g",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Attempted call using expired token"
+			},
+			"response": []
+		}
+	]
+}
