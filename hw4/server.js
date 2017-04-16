@@ -6,7 +6,7 @@ var express = require('express');
 
 var app = express();
 
-var url = 'mongodb://flip:Oldskool420@ds147080.mlab.com:47080/movies';
+var url = 'mongodb://flip:dumb@ds147080.mlab.com:47080/movies';
 
 var bodyParser = require('body-parser');
 
