@@ -1,0 +1,229 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW5",
+		"_postman_id": "56ab3a39-988a-4f78-8bfb-0c044e29263d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieid\": \"58ed56bf49c75402fd9999c9\",\n    \"name\": \"Fuck Stick3\",\n    \"qoute\": \"It's a shame they could not have made a better movie\",\n    \"review\": \"2\"\n}"
+				},
+				"description": "Return all movies"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieid\": \"58ed56bf49c75402fd9999c9\",\n    \"name\": \"Fuck Stick3\",\n    \"qoute\": \"It's a shame they could not have made a better movie\",\n    \"review\": \"2\"\n}"
+				},
+				"description": "requests = true pulls all reviews and movies"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieid\": \"58ed56bf49c75402fd9999c9\",\n    \"name\": \"Dan the Man\",\n    \"qoute\": \"I thought the movie was ok\",\n    \"review\": \"3\"\n}"
+				},
+				"description": "Save movie review based on id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies?reviews=true",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movieid\": \"58ed56bf49c75402fd9899c9\",\n    \"name\": \"\",\n    \"qoute\": \"I thought the movie was ok\",\n    \"review\": \"3\"\n}"
+				},
+				"description": "Rejected saving to database because of missing name field"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies/58ed56bf49c75402fd9999c7",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Spiderman: Homecoming\",\n    \"year\" : \"20017\",\n    \"actors\" : [\n          \"Robert Downey Jr.\",\n          \"Marisa Tomei\",\n          \"Tom Holland\"\n      ]\n}"
+				},
+				"description": "Find movie by Id"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Spiderman: Homecoming\",\n    \"year\" : \"20017\",\n    \"actors\" : [\n          \"Robert Downey Jr.\",\n          \"Marisa Tomei\",\n          \"Tom Holland\"\n      ]\n}"
+				},
+				"description": "Save movie to databse"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies/58f10ec91070642e13b3a297",
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies/5907f9001be86e140fd7016c",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Spiderman: Homecoming\",\n    \"year\" : \"20017\",\n    \"actors\" : [\n          \"Robert Downey Jr.\",\n          \"Marisa Tomei\",\n          \"Tom Holland\"\n      ]\n}"
+				},
+				"description": "Delete movie from database using ID"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"{",
+							"    \"title\" : \"Captain America: The First Avenger\",",
+							"    \"year\" : \"2011\",",
+							"    \"actors\": [",
+							"        \"Chris Evans\",",
+							"        \"Hugo Weaving\",",
+							"        \"Samuel L. Jackson\"",
+							"        ]",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n\n         \"title\": \"Captain America2\",\n\n         \"year\": \"2011\",\n\n         \"actors\": [\n\n             \"Chris Evans\",\n\n             \"Hugo Weaving\",\n\n             \"Samuel L. Jackson\"\n\n         ]\n\n     }"
+				},
+				"description": "Post movie to database denied because missing title"
+			},
+			"response": []
+		},
+		{
+			"name": "http://flipontheradio-test.apigee.net/homework5/movies ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"{",
+							"    \"title\" : \"Captain America: The First Avenger\",",
+							"    \"year\" : \"2011\",",
+							"    \"actors\": [",
+							"        \"Chris Evans\",",
+							"        \"Hugo Weaving\",",
+							"        \"Samuel L. Jackson\"",
+							"        ]",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://flipontheradio-test.apigee.net/homework5/movies/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "     {\n\n         \"title\": \"Captain America: The First Avenger\",\n\n         \"year\": \"2011\"\n\n     }"
+				},
+				"description": "Post movie to database denied because no actors given"
+			},
+			"response": []
+		}
+	]
+}
